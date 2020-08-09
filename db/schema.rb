@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_08_09_180343) do
 
-  create_table "food_trucks", force: :cascade do |t|
-    t.string "name"
-    t.string "food_type"
-    t.string "phone_number"
-    t.integer "owner_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "foodtrucks", force: :cascade do |t|
     t.string "name"
     t.string "food_type"
@@ -60,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_180343) do
     t.string "thanksgiving_day_end"
     t.string "christmas_day_start"
     t.string "christmas_day_end"
-    t.integer "food_truck_id"
+    t.integer "foodtruck_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

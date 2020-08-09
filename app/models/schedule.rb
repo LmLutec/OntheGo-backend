@@ -1,4 +1,4 @@
 class Schedule < ApplicationRecord
-    belongs_to :food_truck
+    belongs_to :foodtruck
 
 end

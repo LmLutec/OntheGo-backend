@@ -23,7 +23,7 @@ class CreateSchedules < ActiveRecord::Migration[6.0]
       t.string :christmas_day_start
       t.string :christmas_day_end
 
-      t.integer :food_truck_id
+      t.integer :foodtruck_id
 
       t.timestamps
     end

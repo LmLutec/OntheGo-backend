@@ -1,5 +1,5 @@
 class Owner < ApplicationRecord
     has_secure_password
-    has_one :food_truck
+    has_one :foodtruck
 
 end
