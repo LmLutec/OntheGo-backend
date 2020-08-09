@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_164155) do
+ActiveRecord::Schema.define(version: 2020_08_09_171217) do
 
   create_table "food_trucks", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,32 @@ ActiveRecord::Schema.define(version: 2020_08_09_164155) do
     t.string "last_name"
     t.string "username"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "mon_start"
+    t.string "mon_end"
+    t.string "tues_start"
+    t.string "tues_end"
+    t.string "wed_start"
+    t.string "wed_end"
+    t.string "thurs_start"
+    t.string "thurs_end"
+    t.string "fri_start"
+    t.string "fri_end"
+    t.string "sat_start"
+    t.string "sat_end"
+    t.string "sun_start"
+    t.string "sun_end"
+    t.string "new_years_day_start"
+    t.string "new_years_day_end"
+    t.string "thanksgiving_day_start"
+    t.string "thanksgiving_day_end"
+    t.string "christmas_day_start"
+    t.string "christmas_day_end"
+    t.integer "food_truck_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

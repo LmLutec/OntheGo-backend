@@ -1,6 +1,6 @@
 class CreateFoodTrucks < ActiveRecord::Migration[6.0]
   def change
-    create_table :food_trucks do |t|
+    create_table :foodtrucks do |t|
       t.string :name
       t.string :food_type
       t.string :phone_number

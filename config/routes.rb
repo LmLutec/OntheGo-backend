@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       namespace :v1 do 
         resources :owners
         resources :food_trucks
+        resources :schedules
         post '/login', to: 'auth#create'
       end
     end

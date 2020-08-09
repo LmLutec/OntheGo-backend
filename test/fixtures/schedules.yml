@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Mon_start: MyString
+  Mon_end: MyString
+  Tues_start: MyString
+  Tues_end: MyString
+  Wed_start: MyString
+  Wed_end: MyString
+  Thurs_start: MyString
+  Thurs_end: MyString
+  Fri_start: MyString
+  Fri_end: MyString
+  Sat_start: MyString
+  Sat_end: MyString
+  Sun_start: MyString
+  Sun_end: MyString
+
+two:
+  Mon_start: MyString
+  Mon_end: MyString
+  Tues_start: MyString
+  Tues_end: MyString
+  Wed_start: MyString
+  Wed_end: MyString
+  Thurs_start: MyString
+  Thurs_end: MyString
+  Fri_start: MyString
+  Fri_end: MyString
+  Sat_start: MyString
+  Sat_end: MyString
+  Sun_start: MyString
+  Sun_end: MyString
