@@ -1,7 +1,7 @@
-class Api::V1::FoodTrucksController < ApplicationController
+class Api::V1::FoodtrucksController < ApplicationController
 
     def create
-        food_truck = FoodTruck.create(food_truck_params)
+        food_truck = Foodtruck.create(food_truck_params)
         render json: food_truck 
     end 
 
