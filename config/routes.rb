@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     namespace :api do 
       namespace :v1 do 
         resources :owners
-        # post '/login', to "auth#create"
+        post '/login', to: 'auth#create'
+        # resources :auth
       end
     end
   
