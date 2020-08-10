@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_08_09_215358) do
 
   create_table "menus", force: :cascade do |t|
     t.integer "foodtruck_id"
-    t.integer "fooditem_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
