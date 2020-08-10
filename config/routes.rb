@@ -5,6 +5,8 @@ Rails.application.routes.draw do
         resources :owners
         resources :foodtrucks
         resources :schedules
+        resources :menus
+        resources :items
         post '/login', to: 'auth#create'
       end
     end
