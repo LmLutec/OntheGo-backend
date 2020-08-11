@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resources :schedules
         resources :menus
         resources :items
+        resources :locations
         post '/login', to: 'auth#create'
       end
     end
