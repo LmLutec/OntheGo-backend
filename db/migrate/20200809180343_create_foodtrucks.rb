@@ -5,6 +5,7 @@ class CreateFoodtrucks < ActiveRecord::Migration[6.0]
       t.string :food_type
       t.string :phone_number
       t.integer :owner_id
+      t.integer :location_id
       t.timestamps
     end
   end
