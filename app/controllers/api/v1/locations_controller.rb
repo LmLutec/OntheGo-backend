@@ -7,7 +7,13 @@ class Api::V1::LocationsController < ApplicationController
 
     def create
        location = Location.create(locations_params)
-       render json: location
+
+       if location.valid?
+            render json: location
+       else 
+            render json: location.errors.messages
+       end 
+       
     end 
 
     def show
