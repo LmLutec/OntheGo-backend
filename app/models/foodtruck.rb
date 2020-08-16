@@ -4,6 +4,7 @@ class Foodtruck < ApplicationRecord
     has_one :schedule
     has_one :menu
     
+    validates :name, :food_type, :phone_number, presence: true 
 
 
 end

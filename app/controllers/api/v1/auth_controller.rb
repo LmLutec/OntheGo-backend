@@ -2,7 +2,7 @@ class Api::V1::AuthController < ApplicationController
 
 
     def create
-        owner = Owner.find_by(username: login_params[:username])
+        owner = Owner.find_by(email: login_params[:email])
 
         if owner && owner.authenticate(login_params[:password])
             token = encode_token({ owner_id: owner.id })
@@ -27,7 +27,7 @@ class Api::V1::AuthController < ApplicationController
 private
 
     def login_params
-        params.require(:owner).permit(:username, :password)
+        params.require(:owner).permit(:email, :password)
     end 
 end
 

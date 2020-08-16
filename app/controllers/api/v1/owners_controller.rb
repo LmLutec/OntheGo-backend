@@ -1,5 +1,5 @@
 class Api::V1::OwnersController < ApplicationController
-
+    before_action :authorized, only: [:profile]
 
     def index
         owners = Owner.all 
@@ -8,16 +8,21 @@ class Api::V1::OwnersController < ApplicationController
 
     def create
         owner = Owner.create(owner_params)
-
+        
         if owner.valid? 
             token = encode_token(owner_id: owner.id)
             render json: { owner: owner, jwt: token}, status: :created 
+        else 
+            render json: owner.errors.messages 
         end 
     end 
 
 
-
-
+    def profile
+        # byebug
+        # owner = Owner.find_by(email: params[:owner][:email])
+        render json: current_user
+    end 
 
 
 
@@ -31,7 +36,7 @@ class Api::V1::OwnersController < ApplicationController
     private
 
     def owner_params
-        params.require(:owner).permit(:first_name, :last_name, :username, :password)
+        params.require(:owner).permit(:first_name, :last_name, :email, :password)
     end
 
 
