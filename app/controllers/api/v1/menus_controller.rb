@@ -2,7 +2,12 @@ class Api::V1::MenusController < ApplicationController
 
     def create 
         menu = Menu.create(menu_params)
-        render json: menu
+
+        if menu.valid?
+            render json: menu
+        else 
+            render json: menu.errors.messages
+        end 
     end 
 
 
