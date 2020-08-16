@@ -9,7 +9,7 @@ class Location < ApplicationRecord
             if "#{params["state"]}" == "#{s[0]}"
                 CS.cities("#{s[0]}").each do |c|
                     if "#{params["city"]}" == "#{c}"
-                       return tester = Location.create(city: params["city"], state: "#{s[0]}")
+                       return Location.find_or_create_by(city: params["city"], state: "#{s[0]}")
                     end 
                 end 
             end
