@@ -5,8 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-CS.states(:us).each do |s|
-    CS.cities("#{s[0]}").each do |city|
-        tester = Location.create(city: city, state: "#{s[0]}")
-    end
-end

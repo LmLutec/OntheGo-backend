@@ -6,13 +6,13 @@ class Api::V1::LocationsController < ApplicationController
     end 
 
     def create
-       location = Location.create(locations_params)
-
-       if location.valid?
+        location = Location.check_location(locations_params)
+        
+        if location.valid?
             render json: location
-       else 
+        else 
             render json: location.errors.messages
-       end 
+        end 
        
     end 
 
