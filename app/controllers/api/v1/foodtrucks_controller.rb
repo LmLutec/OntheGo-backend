@@ -1,8 +1,12 @@
 class Api::V1::FoodtrucksController < ApplicationController
 
     def create
-        food_truck = Foodtruck.create(food_truck_params)
-        render json: food_truck 
+        foodtruck = Foodtruck.create(food_truck_params)
+
+        # options = {
+        #     include: [:location]
+        # }
+        render json: FoodtruckSerializer.new(foodtruck)
     end 
 
 
