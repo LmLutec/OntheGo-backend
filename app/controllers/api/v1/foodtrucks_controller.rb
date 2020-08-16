@@ -9,7 +9,10 @@ class Api::V1::FoodtrucksController < ApplicationController
         render json: FoodtruckSerializer.new(foodtruck)
     end 
 
-
+    def show
+        foodtruck = Foodtruck.where(location_id: params[:foodtruck][:location_id])
+        render json: foodtruck
+    end 
 
 
 
