@@ -5,6 +5,9 @@ class Location < ApplicationRecord
     validates :state, length: { is: 2 }
 
     def self.check_location(params)
+        params["city"] = params["city"].capitalize
+        params["state"] = params["state"].upcase
+
         CS.states(:us).each do |s|
             if "#{params["state"]}" == "#{s[0]}"
                 CS.cities("#{s[0]}").each do |c|
