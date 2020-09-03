@@ -10,9 +10,8 @@ class OwnerSerializer
  
   def to_serialized_json
     @owner.to_json(:include => {
-      :foodtruck
-  },
-       :except => [:updated_at])
+      :foodtruck })
+      #  :except => [:updated_at]
   end
 
 

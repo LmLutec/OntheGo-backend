@@ -11,7 +11,8 @@ class Api::V1::OwnersController < ApplicationController
         
         if owner.valid? 
             token = encode_token(owner_id: owner.id)
-            render json: { owner: OwnerSerializer.new(owner), jwt: token}.to_serialized_json, status: :created 
+            render json: { owner: owner, jwt: token}, status: :created 
+                # owner: OwnerSerializer.new(owner), jwt: token}.to_serialized_json, status: :created 
         else 
             render json: owner.errors.messages 
         end 
