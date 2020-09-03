@@ -18,8 +18,8 @@ class Api::V1::LocationsController < ApplicationController
 
     def show
         # set up to display single location with trucks? Users type in city and state, then fetch show and use find_by method
-        location = Location.find_by(state: params[:state])
-        #  Location.find_by(id: params[:id])
+        
+         Location.find_by(id: params[:id])
             
         render json: location
     end 
