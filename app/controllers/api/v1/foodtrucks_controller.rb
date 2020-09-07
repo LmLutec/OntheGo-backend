@@ -1,5 +1,10 @@
 class Api::V1::FoodtrucksController < ApplicationController
 
+    def index
+        foodtrucks = Foodtruck.all
+        render json: foodtrucks
+    end 
+
     def create
         foodtruck = Foodtruck.create(food_truck_params)
 
