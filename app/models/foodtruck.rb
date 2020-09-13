@@ -1,6 +1,5 @@
 class Foodtruck < ApplicationRecord
     belongs_to :owner
-    # belongs_to :location
     has_one :schedule
     has_one :menu
     
@@ -18,7 +17,6 @@ class Foodtruck < ApplicationRecord
                 CS.cities("#{s[0]}").each do |c|
                     if "#{params["foodtruck"]["city"]}" == "#{c}"
                        return true 
-                        # Location.find_or_create_by(city: params["city"], state: "#{s[0]}")
                     end 
                 end 
             end

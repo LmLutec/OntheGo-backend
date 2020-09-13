@@ -20,7 +20,6 @@ class Api::V1::OwnersController < ApplicationController
 
     def profile
         # byebug
-        # owner = Owner.find_by(email: params[:owner][:email])
         render json: current_user
     end 
 
