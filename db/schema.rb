@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(version: 2020_08_10_235530) do
     t.string "name"
     t.string "food_type"
     t.string "phone_number"
+    t.string "city"
+    t.string "state"
     t.integer "owner_id"
-    t.integer "location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

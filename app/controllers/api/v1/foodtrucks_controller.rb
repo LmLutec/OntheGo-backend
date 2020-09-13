@@ -6,16 +6,18 @@ class Api::V1::FoodtrucksController < ApplicationController
     end 
 
     def create
-        foodtruck = Foodtruck.create(food_truck_params)
-
-        # options = {
-        #     include: [:location]
-        # }
-        render json: FoodtruckSerializer.new(foodtruck)
+        if Foodtruck.check_location(params) == true
+            foodtruck = Foodtruck.create(food_truck_params)
+            if foodtruck.valid?
+                render json: FoodtruckSerializer.new(foodtruck)
+            else 
+                render json: foodtruck.errors.messages
+            end  
+        end 
     end 
 
     def show
-        foodtruck = Foodtruck.where(location_id: params[:foodtruck][:location_id])
+        foodtruck = Foodtruck.where(city: params[:city], state: params[:state])
         render json: foodtruck
     end 
 
@@ -28,7 +30,7 @@ class Api::V1::FoodtrucksController < ApplicationController
 private
 
     def food_truck_params
-        params.require(:foodtruck).permit(:name, :food_type, :phone_number, :owner_id, :location_id)
+        params.require(:foodtruck).permit(:name, :food_type, :phone_number, :city, :state, :owner_id)
     end
 
 end
