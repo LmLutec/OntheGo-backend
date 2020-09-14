@@ -2,6 +2,7 @@ class Api::V1::AuthController < ApplicationController
 
 
     def create
+        
         owner = Owner.find_by(email: login_params[:email])
 
         if owner && owner.authenticate(login_params[:password])
