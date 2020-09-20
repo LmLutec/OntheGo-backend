@@ -20,13 +20,13 @@ class Api::V1::OwnersController < ApplicationController
 
 
     def profile
-        byebug
         render json: current_user
     end 
 
 
 
 
+# if owner.truck != nil
 
 
 

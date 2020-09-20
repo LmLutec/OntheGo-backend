@@ -8,6 +8,7 @@ class Api::V1::FoodtrucksController < ApplicationController
     def create
         if Foodtruck.check_location(params) == true
             foodtruck = Foodtruck.create(food_truck_params)
+            byebug
             if foodtruck.valid?
                 render json: FoodtruckSerializer.new(foodtruck)
             else 
