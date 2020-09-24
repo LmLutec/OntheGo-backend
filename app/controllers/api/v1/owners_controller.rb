@@ -20,7 +20,7 @@ class Api::V1::OwnersController < ApplicationController
 
 
     def profile
-        render json: current_user
+        render json: current_user, :include => [:foodtruck]
     end 
 
 
