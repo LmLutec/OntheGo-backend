@@ -2,7 +2,11 @@ class Api::V1::SchedulesController < ApplicationController
 
     def create
         schedule = Schedule.create(schedule_params)
-        render json: schedule
+        if schedule.valid?
+            render json: schedule
+        else
+            render json: schedule.errors.messages
+        end
     end     
 
 
