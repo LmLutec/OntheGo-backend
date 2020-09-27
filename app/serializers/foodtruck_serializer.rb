@@ -12,9 +12,9 @@ class FoodtruckSerializer
  
   def to_serialized_json
     @truck.to_json(:include => {
-      :schedule
+      :schedule => {:except => [:created_at, :updated_at]},
   },
-       :except => [:updated_at])
+       :except => [:created_at, :updated_at])
   end
 end
 

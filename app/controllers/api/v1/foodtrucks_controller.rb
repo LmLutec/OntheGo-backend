@@ -2,14 +2,14 @@ class Api::V1::FoodtrucksController < ApplicationController
 
     def index
         foodtrucks = Foodtruck.all
-        render json: foodtrucks
+        render json: FoodtruckSerializer.new(foodtrucks).to_serialized_json
     end 
 
     def create
         if Foodtruck.check_location(params) == true
             foodtruck = Foodtruck.create(food_truck_params)
             if foodtruck.valid?
-                render json: { foodtruck: FoodtruckSerializer.new(foodtruck) }
+                render json: FoodtruckSerializer.new(foodtruck).to_serialized_json 
             else 
                 render json: foodtruck.errors.messages
             end  
