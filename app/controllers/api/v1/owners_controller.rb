@@ -21,7 +21,7 @@ class Api::V1::OwnersController < ApplicationController
 
 
     def profile
-        render json: OwnerSerializer.new(current_user).to_serialized_json
+        render json: OwnerSerializer.new(owner: current_user).to_serialized_json
 
         # render json: current_user, :include => [:foodtruck] 
     end 

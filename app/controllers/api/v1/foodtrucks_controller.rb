@@ -16,8 +16,11 @@ class Api::V1::FoodtrucksController < ApplicationController
         end 
     end 
 
-    def show
-        foodtruck = Foodtruck.where(city: params[:city], state: params[:state])
+    def search
+        # food_truck_params[:city] = food_truck_params[:city].capitalize
+        # food_truck_params[:state] = food_truck_params[:state].upcase
+
+        foodtruck = Foodtruck.where(city: food_truck_params[:city].capitalize, state: food_truck_params[:state].upcase)
         render json: foodtruck
     end 
 

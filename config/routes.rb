@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         resources :locations
         post '/login', to: 'auth#create'
         get '/profile', to: 'owners#profile'
+        post '/search', to: 'foodtrucks#search'
       end
     end
   
