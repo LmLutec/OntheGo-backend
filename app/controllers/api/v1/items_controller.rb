@@ -6,7 +6,7 @@ class Api::V1::ItemsController < ApplicationController
         if item.valid?
             render json: item 
         else 
-            render json: item.error.messages
+            render json: item.errors.messages
         end 
     end 
 

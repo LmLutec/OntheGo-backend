@@ -2,18 +2,20 @@ class FoodtruckSerializer
   include FastJsonapi::ObjectSerializer
   attributes :name, :food_type, :phone_number, :city, :state
   belongs_to :owner
-  # belongs_to :location
+  has_one :schedule
+  has_one :menu
+  
 
-  # def initialize(truck)
-  #   @truck = truck
-  # end
+  def initialize(truck)
+    @truck = truck
+  end
  
-  # def to_serialized_json
-  #   @truck.to_json(:include => {
-  #     :foodtruck
-  # },
-  #      :except => [:updated_at])
-  # end
+  def to_serialized_json
+    @truck.to_json(:include => {
+      :schedule
+  },
+       :except => [:updated_at])
+  end
 end
 
 # For truck ratings

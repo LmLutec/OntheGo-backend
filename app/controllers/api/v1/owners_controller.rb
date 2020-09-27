@@ -3,7 +3,8 @@ class Api::V1::OwnersController < ApplicationController
 
     def index
         owners = Owner.all 
-        render json: owners 
+        render json: OwnerSerializer.new(owners).to_serialized_json
+        # json: owners 
     end 
 
     def create
@@ -20,7 +21,7 @@ class Api::V1::OwnersController < ApplicationController
 
 
     def profile
-        render json: current_user, :include => [:foodtruck]
+        render json: current_user, :include => [:foodtruck] 
     end 
 
 

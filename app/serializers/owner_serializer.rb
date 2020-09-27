@@ -9,12 +9,12 @@ class OwnerSerializer
   end
  
   def to_serialized_json
-    @owner.to_json(:include => {
-      :foodtruck })
-      #  :except => [:updated_at]
+    @owner.to_json(:include => { 
+      :foodtruck => {:except => [:created_at, :updated_at]},
+    }, :except => [:created_at, :updated_at])
   end
 
-
+ 
 
 
 end
