@@ -1,5 +1,4 @@
 class Api::V1::OwnersController < ApplicationController
-    before_action :authorized, only: [:profile]
 
     def index
         owners = Owner.all 
@@ -17,13 +16,6 @@ class Api::V1::OwnersController < ApplicationController
         else 
             render json: owner.errors.messages 
         end 
-    end 
-
-
-    def profile
-        render json: OwnerSerializer.new(owner: current_user).to_serialized_json
-
-        # render json: current_user, :include => [:foodtruck] 
     end 
 
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
         resources :items
         resources :locations
         post '/login', to: 'auth#create'
-        get '/profile', to: 'owners#profile'
+        get '/profile', to: 'foodtrucks#profile'
         post '/search', to: 'foodtrucks#search'
       end
     end

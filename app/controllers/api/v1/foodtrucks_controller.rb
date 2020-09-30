@@ -1,4 +1,5 @@
 class Api::V1::FoodtrucksController < ApplicationController
+    before_action :authorized, only: [:profile]
 
     def index
         foodtrucks = Foodtruck.all
@@ -16,14 +17,20 @@ class Api::V1::FoodtrucksController < ApplicationController
         end 
     end 
 
-    def search
-        # food_truck_params[:city] = food_truck_params[:city].capitalize
-        # food_truck_params[:state] = food_truck_params[:state].upcase
+    def profile
 
-        foodtruck = Foodtruck.where(city: food_truck_params[:city].capitalize, state: food_truck_params[:state].upcase)
-        render json: foodtruck
+        truck = current_user.foodtruck
+     
+        render json: FoodtruckSerializer.new(truck).to_serialized_json 
+
+
     end 
 
+
+    def search
+        foodtrucks = Foodtruck.where(city: food_truck_params[:city].capitalize, state: food_truck_params[:state].upcase)
+        render json: FoodtruckSerializer.new(foodtrucks).to_serialized_json
+    end 
 
 
 
