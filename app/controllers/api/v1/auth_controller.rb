@@ -7,7 +7,6 @@ class Api::V1::AuthController < ApplicationController
 
         if owner && owner.authenticate(login_params[:password])
             token = encode_token({ owner_id: owner.id })
-            
             render json: { owner: owner, jwt: token }, status: :accepted
         else 
             

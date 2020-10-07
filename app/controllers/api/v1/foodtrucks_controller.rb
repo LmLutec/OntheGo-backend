@@ -17,6 +17,13 @@ class Api::V1::FoodtrucksController < ApplicationController
         end 
     end 
 
+    def update
+        # food_truck_params[:city] = food_truck_params[:city].capitalize
+        # food_truck_params[:state] = food_truck_params[:state].upcase
+        foodtruck = Foodtruck.find_by(id: params[:id])
+        foodtruck.update(food_truck_params)
+    end 
+
     def profile
 
         truck = current_user.foodtruck
@@ -40,7 +47,7 @@ class Api::V1::FoodtrucksController < ApplicationController
 private
 
     def food_truck_params
-        params.require(:foodtruck).permit(:name, :food_type, :phone_number, :city, :state, :owner_id)
+        params.require(:foodtruck).permit(:id,:name, :food_type, :phone_number, :city, :state, :owner_id)
     end
 
 end

@@ -1,5 +1,7 @@
 class Foodtruck < ApplicationRecord
     belongs_to :owner
+    has_many :notes
+    has_many :ratings
     has_one :schedule
     has_one :menu
     
