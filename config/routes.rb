@@ -9,7 +9,8 @@ Rails.application.routes.draw do
         resources :schedules
         resources :menus
         resources :items
-        resources :locations
+        resources :notes 
+        resources :ratings
         post '/login', to: 'auth#create'
         get '/profile', to: 'foodtrucks#profile'
         post '/search', to: 'foodtrucks#search'
