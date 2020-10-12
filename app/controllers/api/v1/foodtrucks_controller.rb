@@ -18,10 +18,16 @@ class Api::V1::FoodtrucksController < ApplicationController
     end 
 
     def update
-        # food_truck_params[:city] = food_truck_params[:city].capitalize
-        # food_truck_params[:state] = food_truck_params[:state].upcase
-        foodtruck = Foodtruck.find_by(id: params[:id])
-        foodtruck.update(food_truck_params)
+        food_truck_params[:city] = food_truck_params[:city].capitalize
+        food_truck_params[:state] = food_truck_params[:state].upcase
+
+        foodtruck = Foodtruck.find_by(id: food_truck_params[:id])
+        # byebug
+        if foodtruck.valid?
+            foodtruck.update(food_truck_params)
+        else 
+            render json: foodtruck.errors.messages
+        end 
     end 
 
     def profile
