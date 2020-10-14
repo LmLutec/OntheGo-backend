@@ -55,9 +55,10 @@ ActiveRecord::Schema.define(version: 2020_10_07_130258) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "food"
+    t.integer "food_quality"
     t.integer "customer_service"
     t.integer "speed_of_service"
+    t.integer "prices"
     t.integer "foodtruck_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

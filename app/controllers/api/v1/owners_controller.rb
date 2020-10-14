@@ -21,9 +21,6 @@ class Api::V1::OwnersController < ApplicationController
 
 
 
-# if owner.truck != nil
-
-
 
 
 

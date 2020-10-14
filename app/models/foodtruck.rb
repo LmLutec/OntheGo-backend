@@ -6,6 +6,7 @@ class Foodtruck < ApplicationRecord
     has_one :menu
     
     validates :name, :food_type, :phone_number, :city, :state, presence: true 
+    validates_format_of :phone_number, with: /\d\d\d-\d\d\d-\d\d\d\d/, :on => :create
     validates :name, uniqueness: true
     validates :state, length: { is: 2 }
 
@@ -25,3 +26,6 @@ class Foodtruck < ApplicationRecord
         end
     end 
 end
+
+
+
