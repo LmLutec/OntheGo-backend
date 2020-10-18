@@ -9,20 +9,9 @@ class Api::V1::AuthController < ApplicationController
             token = encode_token({ owner_id: owner.id })
             render json: { owner: owner, jwt: token }, status: :accepted
         else 
-            
-            render json: owner.errors.messages 
+            render json: owner.errors.message
         end 
     end
-
-
-
-
-
-
-
-
-
-
 
 
 

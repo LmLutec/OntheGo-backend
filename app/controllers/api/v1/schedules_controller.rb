@@ -2,6 +2,7 @@ class Api::V1::SchedulesController < ApplicationController
 
     def create
         schedule = Schedule.create(schedule_params)
+        
         if schedule.valid?
             render json: schedule
         else

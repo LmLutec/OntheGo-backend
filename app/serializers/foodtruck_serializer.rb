@@ -14,6 +14,7 @@ class FoodtruckSerializer
     @truck.to_json(:include => {
       :schedule => {:except => [:foodtruck_id, :created_at, :updated_at]},
       :menu => {:include => [:items]},
+      :notes => {:except => [:created_at, :updated_at]}
       # {:except => [:created_at, :updated_at]},
   }, 
     :except => [:created_at, :updated_at])

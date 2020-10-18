@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_130258) do
+ActiveRecord::Schema.define(version: 2020_10_15_151815) do
 
   create_table "foodtrucks", force: :cascade do |t|
     t.string "name"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 2020_10_07_130258) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "item_type"
     t.float "price"
+    t.string "description"
     t.integer "menu_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,10 +57,10 @@ ActiveRecord::Schema.define(version: 2020_10_07_130258) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "food_quality"
-    t.integer "customer_service"
-    t.integer "speed_of_service"
-    t.integer "prices"
+    t.string "customer_service"
+    t.string "food_quality"
+    t.string "prices"
+    t.string "speed_of_service"
     t.integer "foodtruck_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
