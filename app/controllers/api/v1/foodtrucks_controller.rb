@@ -17,6 +17,15 @@ class Api::V1::FoodtrucksController < ApplicationController
         end 
     end 
 
+    def show 
+        foodtruck = Foodtruck.find_by(id: params[:id])
+        if foodtruck.valid?
+            render json: FoodtruckSerializer.new(foodtruck).to_serialized_json
+        else 
+            render foodtruck.errors.messages
+        end 
+    end 
+
     def update
         food_truck_params[:city] = food_truck_params[:city].capitalize
         food_truck_params[:state] = food_truck_params[:state].upcase
