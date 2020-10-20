@@ -14,18 +14,9 @@ class FoodtruckSerializer
     @truck.to_json(:include => {
       :schedule => {:except => [:foodtruck_id, :created_at, :updated_at]},
       :menu => {:include => [:items]},
-      :notes => {:except => [:created_at, :updated_at]}
-      # {:except => [:created_at, :updated_at]},
+      :notes => {:except => [:created_at, :updated_at]},
+      :ratings => {:except => [:updated_at]},
   }, 
     :except => [:created_at, :updated_at])
   end
 end
-
-# For truck ratings
-# class UserSerializer
-#   include FastJsonapi::ObjectSerializer
-#   attributes :username
-#   attributes :high_score do |object|
-#     object.games.map(&:score).max
-#   end
-# end

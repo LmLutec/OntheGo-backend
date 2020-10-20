@@ -8,8 +8,6 @@ class Api::V1::RatingsController < ApplicationController
         rating = Rating.create(rating_params)
 
         if rating 
-            
-            # Rating.overall_food_quality(rating_params)
             render json: rating 
         else 
             render json: rating.errors.messages

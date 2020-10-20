@@ -1,6 +1,7 @@
 class Api::V1::FoodtrucksController < ApplicationController
     before_action :authorized, only: [:profile]
 
+
     def index
         foodtrucks = Foodtruck.all
         render json: FoodtruckSerializer.new(foodtrucks).to_serialized_json
@@ -40,12 +41,9 @@ class Api::V1::FoodtrucksController < ApplicationController
     end 
 
     def profile
-
         truck = current_user.foodtruck
      
         render json: FoodtruckSerializer.new(truck).to_serialized_json 
-
-
     end 
 
 
