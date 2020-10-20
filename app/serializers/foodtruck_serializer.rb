@@ -1,6 +1,6 @@
 class FoodtruckSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :food_type, :phone_number, :city, :state
+  attributes :name, :food_type, :phone_number, :street, :city, :state, :zip_code
   belongs_to :owner
   has_one :schedule
   has_one :menu

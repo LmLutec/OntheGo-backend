@@ -62,7 +62,7 @@ class Api::V1::FoodtrucksController < ApplicationController
 private
 
     def food_truck_params
-        params.require(:foodtruck).permit(:id,:name, :food_type, :phone_number, :city, :state, :owner_id)
+        params.require(:foodtruck).permit(:id,:name, :food_type, :phone_number, :street, :city, :state, :zip_code, :owner_id)
     end
 
 end
