@@ -49,7 +49,11 @@ class Api::V1::FoodtrucksController < ApplicationController
 
     def search
         foodtrucks = Foodtruck.where(city: food_truck_params[:city].capitalize, state: food_truck_params[:state].upcase)
-        render json: FoodtruckSerializer.new(foodtrucks).to_serialized_json
+        if foodtrucks != nil && foodtrucks != []
+            render json: FoodtruckSerializer.new(foodtrucks).to_serialized_json
+        else 
+            render json: { message: "Check spelling of city and state"}
+        end 
     end 
 
 
