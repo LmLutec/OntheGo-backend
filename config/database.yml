@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: onthego_database_development
-  username: AdministratorsAir9
+  username: lauren
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -21,7 +21,7 @@ development:
 test:
   <<: *default
   database: db
-  username: AdministratorsAir9
+  username: lauren
   password:
 
 production:
