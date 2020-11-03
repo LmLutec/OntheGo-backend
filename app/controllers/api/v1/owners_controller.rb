@@ -19,7 +19,9 @@ class Api::V1::OwnersController < ApplicationController
 
     def destroy
         owner = Owner.find_by(id: owner_params[:id])
+        truck = owner.foodtruck
         owner.destroy
+        truck.destroy
     end 
 
 
