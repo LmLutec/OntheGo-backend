@@ -6,9 +6,11 @@ class Foodtruck < ApplicationRecord
     has_one :menu
     
     validates :name, :food_type, :phone_number, :street, :city, :state, :zip_code, presence: true 
-    validates_format_of :phone_number, with: /\d\d\d-\d\d\d-\d\d\d\d/, :on => :create
-    validates :name, uniqueness: true
+    validates :phone_number, length: { is: 10 }
     validates :state, length: { is: 2 }
+    validates :zip_code, length: { is: 5 }
+    validates :name, uniqueness: true
+    
 
     def self.check_location(params)
         

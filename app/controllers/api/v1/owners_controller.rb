@@ -13,15 +13,15 @@ class Api::V1::OwnersController < ApplicationController
             token = encode_token(owner_id: owner.id)
             render json: { owner: owner, jwt: token}, status: :created 
         else 
-            render json: owner.errors.messages 
+            render json: {message: owner.errors.messages} 
         end 
     end 
 
     def destroy
         owner = Owner.find_by(id: owner_params[:id])
         truck = owner.foodtruck
-        owner.destroy
         truck.destroy
+        owner.destroy
     end 
 
 

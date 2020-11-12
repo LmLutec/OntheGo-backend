@@ -13,7 +13,7 @@ class Api::V1::FoodtrucksController < ApplicationController
             if foodtruck.valid?
                 render json: FoodtruckSerializer.new(foodtruck).to_serialized_json 
             else 
-                render json: foodtruck.errors.messages
+                render json: {message: foodtruck.errors.messages}
             end  
         end 
     end 
@@ -23,27 +23,31 @@ class Api::V1::FoodtrucksController < ApplicationController
         if foodtruck.valid?
             render json: FoodtruckSerializer.new(foodtruck).to_serialized_json
         else 
-            render foodtruck.errors.messages
+            render json: {message: foodtruck.errors.messages}
         end 
     end 
 
     def update
-        food_truck_params[:city] = food_truck_params[:city].capitalize
-        food_truck_params[:state] = food_truck_params[:state].upcase
+        if Foodtruck.check_location(params) == true
 
-        foodtruck = Foodtruck.find_by(id: food_truck_params[:id])
-        # byebug
-        if foodtruck.valid?
-            foodtruck.update(food_truck_params)
-        else 
-            render json: foodtruck.errors.messages
+            foodtruck = Foodtruck.find_by(id: food_truck_params[:id])
+
+            if foodtruck.valid?
+                foodtruck.update(food_truck_params)
+            else 
+                render json: {message: foodtruck.errors.messages}
+            end 
         end 
     end 
 
     def profile
         truck = current_user.foodtruck
      
-        render json: FoodtruckSerializer.new(truck).to_serialized_json 
+        if truck.valid?
+            render json: FoodtruckSerializer.new(truck).to_serialized_json 
+        else 
+            render json: {message: truck.errors.messages}
+        end 
     end 
 
 
@@ -52,7 +56,7 @@ class Api::V1::FoodtrucksController < ApplicationController
         if foodtrucks != nil && foodtrucks != []
             render json: FoodtruckSerializer.new(foodtrucks).to_serialized_json
         else 
-            render json: { message: "Check spelling of city and state"}
+            render json: { message: "Check spelling of city and state. Or Foodtrucks may not be in your area yet!"}
         end 
     end 
 
