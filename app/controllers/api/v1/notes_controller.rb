@@ -3,8 +3,9 @@ class Api::V1::NotesController < ApplicationController
     end 
 
     def create
+    
         note = Note.create(note_params)
-
+# byebug
         if note.valid?
             render json: note 
         else 

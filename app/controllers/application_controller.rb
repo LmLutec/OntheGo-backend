@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::API
 
     def encode_token(payload)
-
+        # exp = Time.now.to_i + 60 * 60
+        # payload[:exp] = exp
+# byebug
         secret = 'test1234'
 
-        JWT.encode(payload, secret)
+        JWT.encode(payload.merge(exp: 15.minutes.from_now.to_i), secret)
 
     end 
-
 
     def auth_header
         request.headers['Authorization']
@@ -15,19 +16,23 @@ class ApplicationController < ActionController::API
 
     def decoded_token
         if auth_header
+    # byebug
             token = auth_header.split(' ')[1]
             begin
-                JWT.decode(token, 'test1234', true, algorithm: 'HS256')
+                decoded_token = JWT.decode(token, 'test1234', true, algorithm: 'HS256')
             rescue JWT::DecodeError
+               nil
+            rescue JWT::ExpiredSignature
                 nil 
             end 
+         
         end 
     end
 
     def current_user
         if decoded_token
             owner_id = decoded_token[0]['owner_id']
-            owner = Owner.find_by(id: owner_id)
+            owner = Owner.find(owner_id)
         end 
     end 
 

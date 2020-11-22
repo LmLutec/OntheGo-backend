@@ -42,7 +42,7 @@ class Api::V1::FoodtrucksController < ApplicationController
 
     def profile
         truck = current_user.foodtruck
-     
+     byebug
         if truck.valid?
             render json: FoodtruckSerializer.new(truck).to_serialized_json 
         else 
