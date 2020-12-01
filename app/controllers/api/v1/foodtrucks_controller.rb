@@ -31,7 +31,7 @@ class Api::V1::FoodtrucksController < ApplicationController
         if Foodtruck.check_location(params) == true
 
             foodtruck = Foodtruck.find_by(id: food_truck_params[:id])
-
+# byebug
             if foodtruck.valid?
                 foodtruck.update(food_truck_params)
             else 
@@ -41,8 +41,9 @@ class Api::V1::FoodtrucksController < ApplicationController
     end 
 
     def profile
+        # byebug
         truck = current_user.foodtruck
-     byebug
+    
         if truck.valid?
             render json: FoodtruckSerializer.new(truck).to_serialized_json 
         else 
