@@ -4,6 +4,7 @@ class Foodtruck < ApplicationRecord
     has_many :ratings
     has_one :schedule
     has_one :menu
+    has_many :items, through: :menu
     
     validates :name, :food_type, :phone_number, :street, :city, :state, :zip_code, presence: true 
     validates :phone_number, length: { is: 10 }
