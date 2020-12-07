@@ -4,6 +4,7 @@ class FoodtruckSerializer
   belongs_to :owner
   has_one :schedule
   has_one :menu
+  has_many :ratings
   has_many :items, through: :menu
   
 
