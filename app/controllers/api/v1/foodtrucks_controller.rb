@@ -41,7 +41,6 @@ class Api::V1::FoodtrucksController < ApplicationController
     end 
 
     def profile
-        # byebug
         truck = current_user.foodtruck
     
         if truck.valid?

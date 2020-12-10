@@ -11,6 +11,8 @@ class Foodtruck < ApplicationRecord
     validates :state, length: { is: 2 }
     validates :zip_code, length: { is: 5 }
     validates :name, uniqueness: true
+    validates :phone_number, uniqueness: true
+    # validates_format_of :phone_number, with: /\d\d\d-\d\d\d-\d\d\d\d/, :on => :create
     
 
     def self.check_location(params)
