@@ -19,8 +19,8 @@ class Api::V1::FoodtrucksController < ApplicationController
                 else 
                     render json: {message: foodtruck.errors.messages}
                 end  
-            else
-                render json: {message: "Foodtruck name is already taken in your city"}
+            # else
+            #     render json: {message: "Foodtruck name is already taken in your city"}
             end 
         # else 
         #     render json: {message: "City and State do not match. Check spelling of each and try again."}
