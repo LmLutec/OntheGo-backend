@@ -9,10 +9,10 @@ class Api::V1::FoodtrucksController < ApplicationController
 
     def create
         if Foodtruck.check_location(params) == true
-            dup = Foodtruck.find_by(name: params["foodtruck"]["name"], state: [params]["foodtruck"]["state"], city: params["foodtruck"]["city"])
+            dup = Foodtruck.find_by(name: "#{params["foodtruck"]["name"]}", state: "#{[params]["foodtruck"]["state"]}", city: "#{params["foodtruck"]["city"]}")
+    
             # Foodtruck.where(name: params["foodtruck"]["name"], city: params["foodtruck"]["city"], state: [params]["foodtruck"]["state"])
-            byebug
-            # if !dup
+            if !dup
                 foodtruck = Foodtruck.create(food_truck_params)
                 
                 if foodtruck.valid?
@@ -20,11 +20,11 @@ class Api::V1::FoodtrucksController < ApplicationController
                 else 
                     render json: {message: foodtruck.errors.messages}
                 end  
-            # else
-            #     render json: {message: "Foodtruck name is already taken in your city"}
-            # end 
-        # else 
-        #     render json: {message: "City and State do not match. Check spelling of each and try again."}
+            else
+                render json: {message: "Foodtruck name is already taken in your city"}
+            end 
+        else 
+            render json: {message: "City and State do not match. Check spelling of each and try again."}
         end 
     end 
 
