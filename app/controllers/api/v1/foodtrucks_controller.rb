@@ -9,7 +9,8 @@ class Api::V1::FoodtrucksController < ApplicationController
 
     def create
         if Foodtruck.check_location(params) == true
-            # dup = Foodtruck.where(name: params["foodtruck"]["name"], city: params["foodtruck"]["city"], state: [params]["foodtruck"]["state"])
+            dup = Foodtruck.find_by(name: params["foodtruck"]["name"], state: [params]["foodtruck"]["state"], city: params["foodtruck"]["city"])
+            # Foodtruck.where(name: params["foodtruck"]["name"], city: params["foodtruck"]["city"], state: [params]["foodtruck"]["state"])
             byebug
             # if !dup
                 foodtruck = Foodtruck.create(food_truck_params)
