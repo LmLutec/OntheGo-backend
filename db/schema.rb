@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_151815) do
     t.string "city"
     t.string "state"
     t.string "zip_code"
+    t.integer "likes", default: 0
     t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
