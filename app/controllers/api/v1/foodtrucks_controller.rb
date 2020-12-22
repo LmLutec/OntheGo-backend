@@ -60,6 +60,17 @@ class Api::V1::FoodtrucksController < ApplicationController
         end 
     end 
 
+    def like
+        foodtruck = Foodtruck.find_by(id: food_truck_params[:id])
+    
+        if foodtruck.valid?
+            foodtruck.update(food_truck_params)
+            # byebug
+            render json: FoodtruckSerializer.new(foodtruck).to_serialized_json
+        else 
+            render json: {message: foodtruck.errors.messages}
+        end 
+    end 
 
 
 
@@ -68,7 +79,7 @@ class Api::V1::FoodtrucksController < ApplicationController
 private
 
     def food_truck_params
-        params.require(:foodtruck).permit(:id,:name, :food_type, :phone_number, :street, :city, :state, :zip_code, :owner_id)
+        params.require(:foodtruck).permit(:id,:name, :food_type, :phone_number, :street, :city, :state, :zip_code, :likes, :owner_id)
     end
 
 end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         post '/login', to: 'auth#create'
         get '/profile', to: 'foodtrucks#profile'
         post '/search', to: 'foodtrucks#search'
+        post '/like', to: 'foodtrucks#like'
       end
     end
   
