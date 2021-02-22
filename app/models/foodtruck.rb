@@ -13,7 +13,7 @@ class Foodtruck < ApplicationRecord
     validates :phone_number, uniqueness: true
     # validates_format_of :phone_number, with: /\d\d\d-\d\d\d-\d\d\d\d/, :on => :create
     
-
+ 
     def self.check_location(params)
         
         params["foodtruck"]["city"] = params["foodtruck"]["city"].capitalize
