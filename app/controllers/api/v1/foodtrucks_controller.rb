@@ -34,7 +34,7 @@ class Api::V1::FoodtrucksController < ApplicationController
 # byebug
             if foodtruck.valid?
                 foodtruck.update(food_truck_params)
-                render json: {truck: foodtruck}
+                render json: foodtruck
             else 
                 render json: {message: foodtruck.errors.messages}
             end 
