@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         get '/profile', to: 'foodtrucks#profile'
         post '/search', to: 'foodtrucks#search'
         post '/like', to: 'foodtrucks#like'
+        patch '/foodtrucks/:id/edit', to: 'foodtrucks#update'
       end
     end
   
