@@ -31,7 +31,7 @@ class Api::V1::FoodtrucksController < ApplicationController
         if Foodtruck.check_location(params) == true
 
             foodtruck = Foodtruck.find_by(id: food_truck_params[:id])
-# byebug
+
             if foodtruck.valid?
                 foodtruck.update(food_truck_params)
                 render json: foodtruck
