@@ -15,9 +15,9 @@ class Api::V1::SchedulesController < ApplicationController
 
         if schedule.valid?
             schedule.update(schedule_params)
-            render json: schedule
+            render json: { schedule: schedule}
         else 
-            render json: schedule.errors.messages 
+            render json: {error: schedule.errors.messages} 
         end 
     end 
 
